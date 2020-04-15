@@ -19,8 +19,7 @@
 }
 
 .weatherDataContainer {
-    width: 1000px;
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--bg-dark);
     padding: 10px;
     margin: 10px;
     display: flex;
@@ -29,7 +28,7 @@
 }
 .weatherDataHeader {
     flex-basis: 100%;
-    color: #d06d6d;
+    color: var(--clr-accent);
     margin: 0 0 10px 0;
     font-size: 1.25rem;
 }
@@ -37,19 +36,19 @@
 .dayHeader {
     color: white;
     font-size: 4rem;
-    margin: 0 1rem;
+    margin: 0 16px;
 }
 
 .sectionHeader {
     color: white;
     font-size: 3rem;
-    margin: 0 1rem;
+    margin: 0 16px;
 }
 
 .reading {
-    margin: 0 1rem;
+    margin: 0 16px;
     font-size: 1.8rem;
-    color: #613131;
+    color: var(--clr-accent-dark);
     font-weight: 300px;
 }
 
@@ -59,13 +58,13 @@
     flex-basis: 300px;
 }
 .weatherDataItem:not(:last-child) {
-    border-right: 2px solid #d06d6d;
+    border-right: 2px solid var(--clr-accent);
 }
 
 .dateDay {
     font-size: 2.5rem;
-    color: #613131;
-    margin: 0 1rem;
+    color: var(--clr-accent-dark);
+    margin: 0 16px;
     font-weight: 300px;
 }
 
@@ -87,7 +86,7 @@
 @media (max-width: 950px) {
     .weatherDataItem:not(:last-child) {
         border-right: none;
-        border-bottom: 2px solid #d06d6d;
+        border-bottom: 2px solid var(--clr-accent);
         padding-bottom: 10px;
     }
 }

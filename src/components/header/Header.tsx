@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 function Header() {
     const [burgerMenuIsOpen, setBurgerMenuStatus] = useState(false);
