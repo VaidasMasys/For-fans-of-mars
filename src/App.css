@@ -1,0 +1,11 @@
+html,
+body,
+#root,
+.App,
+.App > div {
+    height: 100%;
+}
+
+body {
+    font-family: 'Open Sans', 'sans-serif';
+}
