@@ -15,20 +15,21 @@ class Home extends Component {
             .then((data: MarsWeather) => {
                 const { sol_keys, validity_checks, ...solData } = data;
 
-                const transformedSoldata: TransformedSoldata[] = Object.entries(solData).map(([sol, data]) => {
-                    return {
-                        sol: sol,
-                        maxTemp: data.AT.mx,
-                        minTemp: data.AT.mn,
-                        windSpeed: data.HWS.av,
-                        windDirectionDegrees: data.WD.most_common.compass_degrees,
-                        lastDate: `${new Date(data.Last_UTC).toLocaleString('default', { month: 'long' })} ${new Date(
-                            data.Last_UTC,
-                        ).getDate()}`,
-                    };
-                });
+                // const transformedSoldata: TransformedSoldata[] = Object.entries(solData).map(([sol, data]) => {
+                //     console.log('sss', data);
+                //     return {
+                //         sol: sol,
+                //         maxTemp: data.AT.mx,
+                //         minTemp: data.AT.mn,
+                //         windSpeed: data.HWS.av,
+                //         windDirectionDegrees: data.WD.most_common.compass_degrees,
+                //         lastDate: `${new Date(data.Last_UTC).toLocaleString('default', { month: 'long' })} ${new Date(
+                //             data.Last_UTC,
+                //         ).getDate()}`,
+                //     };
+                // });
 
-                this.setState({ solData: transformedSoldata });
+                // this.setState({ solData: transformedSoldata });
                 // console.log('sol data', solData['483'].WD);
             });
     }
