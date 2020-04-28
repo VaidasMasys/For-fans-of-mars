@@ -2,30 +2,11 @@ import { action } from 'typesafe-actions';
 import axios from 'axios';
 import { Constants } from './types';
 
-// export function fetchWeatherData(item: string) {
-//     // axios
-//     //     .get(
-//     //         'https://api.nasa.gov/insight_weather/?api_key=pIwfkyUZDPOcZZu6Pv1uc7g2Zl7YBI8mkbn6PDHU&feedtype=json&ver=1.0',
-//     //     )
-//     //     .then((response) => {
-//     //         console.log('this is response', response);
-//     //     });
-// return action(Constants.FETCH_WEATHER_DATA_SUCCESS, {
-//     item,
-// });
-// }
-
-// export function setLoading(loading: boolean) {
-//     // return action(Constants.SET_LOADING, {
-//     //     loading,
-//     // });
-// }
-
 export const fetchWeatherRequest = () => {
     return action(Constants.FETCH_WEATHER_DATA_REQUEST);
 };
 
-export const fetchWeatherSuccess = (weather: any) => {
+export const fetchWeatherSuccess = (weather: { solDay: string; data: MarsDayData }) => {
     return action(Constants.FETCH_WEATHER_DATA_SUCCESS, {
         weather,
     });
@@ -45,8 +26,15 @@ export const fetchWeather = () => {
             .get(
                 'https://api.nasa.gov/insight_weather/?api_key=pIwfkyUZDPOcZZu6Pv1uc7g2Zl7YBI8mkbn6PDHU&feedtype=json&ver=1.0',
             )
-            .then((response) => {
-                dispatch(fetchWeatherSuccess(response.data));
+            .then((response: { data: MarsWeather }) => {
+                const lastDay = response.data.sol_keys[response.data.sol_keys.length - 1];
+
+                const latestWeatherData = {
+                    solDay: lastDay,
+                    data: response.data[lastDay],
+                };
+
+                dispatch(fetchWeatherSuccess(latestWeatherData));
             })
             .catch((error: string) => {
                 dispatch(fetchWeatherFailure(error));
