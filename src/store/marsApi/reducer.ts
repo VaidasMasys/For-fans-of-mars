@@ -1,8 +1,9 @@
 import { WeatherDataState, DemoActions } from './types';
 import { Constants } from './types';
+import { MarsDayData } from '../../types';
 
 const initialState: WeatherDataState = {
-    weatherData: {},
+    weatherData: { weather: new MarsDayData() },
     loading: false,
     error: '',
 };

@@ -7,17 +7,6 @@ declare interface MarsWeather {
     [key: string]: MarsDayData;
     [key: string]: MarsDayData;
     sol_keys: string[];
-    validity_checks: any;
-}
-
-declare interface MarsDayData {
-    AT: TemperatureValues;
-    First_UTC: string;
-    HWS: TemperatureValues;
-    Last_UTC: string;
-    PRE: TemperatureValues;
-    Season: string;
-    WD: WD;
 }
 
 declare interface TemperatureValues {
@@ -53,13 +42,4 @@ declare interface CompassData {
     compass_right: number;
     compass_up: number;
     ct: number;
-}
-
-declare interface TransformedSoldata {
-    sol: string;
-    maxTemp: number;
-    minTemp: number;
-    windSpeed: number;
-    windDirectionDegrees: number;
-    lastDate: string;
 }

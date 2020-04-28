@@ -1,9 +1,10 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { weatherReducer } from './marsApi/reducer';
 import thunk from 'redux-thunk';
+import { WeatherDataState } from './marsApi/types';
 
 export interface IRootState {
-    marsWeather: any;
+    marsWeather: WeatherDataState;
 }
 const store = createStore<IRootState, any, any, any>(
     combineReducers({

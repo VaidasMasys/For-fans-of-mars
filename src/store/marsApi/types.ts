@@ -1,11 +1,12 @@
 import { ActionType } from 'typesafe-actions';
-import * as actions from './actions';
+import * as actions from './asyncActions';
+import { MarsDayData } from '../../types';
 export type DemoActions = ActionType<typeof actions>;
 
 export interface WeatherDataState {
-    weatherData: any;
+    weatherData: { weather: MarsDayData };
     loading: boolean;
-    error: any;
+    error: string;
 }
 
 export enum Constants {
