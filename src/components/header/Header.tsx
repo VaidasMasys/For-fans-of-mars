@@ -17,6 +17,7 @@ function Header() {
 
                 <div className={styles.icon}>
                     <div
+                        id="burgerMenuButton"
                         className={burgerMenuIsOpen ? `${styles.menuBtnOpen} ${styles.menuBtn}` : styles.menuBtn}
                         onClick={() => {
                             setBurgerMenuStatus(!burgerMenuIsOpen);
