@@ -2,7 +2,7 @@ import { action } from 'typesafe-actions';
 import axios from 'axios';
 import { Constants } from './types';
 import { Dispatch } from 'redux';
-import { MarsDayData, MarsRoverPhotosData } from '../../types';
+import { MarsDayData, MarsRoverPhotosData, MarsWeather } from '../../types';
 
 export const fetchWeatherRequest = () => {
     return action(Constants.FETCH_WEATHER_DATA_REQUEST);
@@ -27,9 +27,7 @@ export const fetchWeather = () => {
             )
             .then((response: { data: MarsWeather }) => {
                 const lastDay = response.data.sol_keys[response.data.sol_keys.length - 1];
-
-                const latestWeatherData = { ...response.data[lastDay], solDay: lastDay };
-
+                const latestWeatherData: MarsDayData = { ...response.data[lastDay], solDay: lastDay } as MarsDayData;
                 dispatch(fetchWeatherSuccess(latestWeatherData));
             })
             .catch((error: string) => {
