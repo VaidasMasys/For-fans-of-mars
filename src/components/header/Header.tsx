@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 
@@ -8,12 +9,13 @@ function Header() {
     return (
         <header>
             <nav className={burgerMenuIsOpen ? `${styles.topnav} ${styles.responsive}` : styles.topnav}>
-                <a href="#home" className={styles.active}>
-                    Home
-                </a>
-                <a>News</a>
-                <a>Contact</a>
-                <a>About</a>
+                <NavLink exact={true} to="/" activeClassName={styles.isActive}>
+                    <div>Home</div>
+                </NavLink>
+
+                <NavLink exact={true} to="/gallery" activeClassName={styles.isActive}>
+                    <div>Gallery</div>
+                </NavLink>
 
                 <div className={styles.icon}>
                     <div
