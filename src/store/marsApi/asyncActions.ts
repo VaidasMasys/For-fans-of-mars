@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Constants } from './types';
 import { Dispatch } from 'redux';
 import { MarsDayData, MarsRoverPhotosData, MarsWeather } from '../../types';
+import { setActivePhotoData } from '../gallery/actions';
 
 export const fetchWeatherRequest = () => {
     return action(Constants.FETCH_WEATHER_DATA_REQUEST);
@@ -53,16 +54,11 @@ export const fetchRoverPhotos = () => {
         dispatch(fetchRoverPhotosRequest());
         axios
             .get(
-                'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2020-5-1&api_key=pIwfkyUZDPOcZZu6Pv1uc7g2Zl7YBI8mkbn6PDHU&feedtype=json&ver=1.0',
+                'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2020-5-1&camera=NAVCAM&api_key=pIwfkyUZDPOcZZu6Pv1uc7g2Zl7YBI8mkbn6PDHU&feedtype=json&ver=1.0',
             )
             .then((response) => {
-                console.log('rover data', response.data);
-                // const lastDay = response.data.sol_keys[response.data.sol_keys.length - 1];
-
-                // const latestWeatherData = { ...response.data[lastDay], solDay: lastDay };
-
-                // dispatch(fetchWeatherSuccess(latestWeatherData));
                 dispatch(fetchRoverPhotosSuccess(response.data.photos));
+                dispatch(setActivePhotoData(response.data.photos[0]));
             })
             .catch((error: string) => {
                 dispatch(fetchWeatherFailure(error));
