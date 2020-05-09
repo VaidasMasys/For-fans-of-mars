@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import styles from './Home.module.scss';
-import Header from '../header/Header';
 import { useSelector, useDispatch } from 'react-redux';
 import { IRootState } from '../../store';
 import { fetchWeather } from '../../store/marsApi/asyncActions';
@@ -17,7 +16,6 @@ function Home() {
     return (
         <div className={styles.container}>
             <div className={styles.homeBackground}></div>
-            <Header />
             <div className={styles.weatherDataWrapper}>
                 <div className={styles.weatherDataContainer}>
                     <h1 className={styles.weatherDataHeader}>LATEST WEATHER ON MARS</h1>

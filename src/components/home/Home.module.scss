@@ -1,5 +1,6 @@
 .container {
     overflow: hidden;
+    height: 80%;
 }
 
 .homeBackground {
@@ -72,10 +73,14 @@
     .homeBackground {
         background-image: url('../../assets/mars_width_saturn_small.jpg');
     }
+    .container {
+        height: auto;
+    }
 }
 @media (max-width: 768px) {
     .homeBackground {
         background-image: url('../../assets/mars_width_saturn_small.jpg');
+        position: absolute;
     }
 
     .container {
