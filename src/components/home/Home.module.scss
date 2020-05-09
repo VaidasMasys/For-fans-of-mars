@@ -1,6 +1,6 @@
 .container {
     overflow: hidden;
-    height: 80%;
+    height: 100%;
 }
 
 .homeBackground {
@@ -76,11 +76,14 @@
     .container {
         height: auto;
     }
+
+    .weatherDataWrapper {
+        margin-top: 50px;
+    }
 }
 @media (max-width: 768px) {
     .homeBackground {
         background-image: url('../../assets/mars_width_saturn_small.jpg');
-        position: absolute;
     }
 
     .container {
