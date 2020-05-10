@@ -1,0 +1,19 @@
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    width: 350px;
+    margin-left: 50px;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        width: 350px;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}

@@ -4,6 +4,7 @@ import { fetchRoverPhotos } from '../../store/marsApi/asyncActions';
 import styles from './Gallery.module.scss';
 import ActiveGalleryWindow from './ActiveGalleryWindow';
 import GalleryGrid from './GalleryGrid';
+import ActiveGalleryItemInfoDisplay from './ActiveGalleryItemInfoDisplay';
 
 const Gallery = () => {
     const dispatch = useDispatch();
@@ -14,10 +15,16 @@ const Gallery = () => {
     return (
         <div className={styles.container}>
             <div className={styles.photos}>
-                <ActiveGalleryWindow />
-                <GalleryGrid />
+                <div className={styles.activeGalleryWindow}>
+                    <ActiveGalleryWindow />
+                </div>
+                <div className={styles.ActiveGalleryItemInfoDisplay}>
+                    <ActiveGalleryItemInfoDisplay />
+                </div>
+                <div className={styles.GalleryGrid}>
+                    <GalleryGrid />
+                </div>
             </div>
-            <div className={styles.description}>Right</div>
         </div>
     );
 };
