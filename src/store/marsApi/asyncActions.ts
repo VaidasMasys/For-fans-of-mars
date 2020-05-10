@@ -52,16 +52,34 @@ export const fetchRoverPhotosFailure = (error: string) => {
 export const fetchRoverPhotos = () => {
     return (dispatch: Dispatch) => {
         dispatch(fetchRoverPhotosRequest());
+        generateOneWeekOldDate();
         axios
             .get(
-                'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2020-5-1&camera=NAVCAM&api_key=pIwfkyUZDPOcZZu6Pv1uc7g2Zl7YBI8mkbn6PDHU&feedtype=json&ver=1.0',
+                `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${generateOneWeekOldDate()}&api_key=pIwfkyUZDPOcZZu6Pv1uc7g2Zl7YBI8mkbn6PDHU&feedtype=json&ver=1.0`,
             )
-            .then((response) => {
-                dispatch(fetchRoverPhotosSuccess(response.data.photos));
-                dispatch(setActivePhotoData(response.data.photos[0]));
+            .then((response: { data: { photos: MarsRoverPhotosData[] } }) => {
+                const filteredPhotosData = response.data.photos.filter(
+                    (item) =>
+                        item.camera.name === 'NAVCAM' ||
+                        item.camera.name === 'FHAZ' ||
+                        item.camera.name === 'RHAZ' ||
+                        item.camera.name === 'CHEMCAM',
+                );
+                dispatch(fetchRoverPhotosSuccess(filteredPhotosData));
+                dispatch(setActivePhotoData(filteredPhotosData[0]));
             })
             .catch((error: string) => {
                 dispatch(fetchWeatherFailure(error));
             });
     };
+};
+
+const generateOneWeekOldDate = () => {
+    const currentDate = new Date();
+    const pastDate = currentDate.getDate() - 10;
+    currentDate.setDate(pastDate);
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1;
+    const day = currentDate.getDate();
+    return `${year}-${month}-${day}`;
 };
