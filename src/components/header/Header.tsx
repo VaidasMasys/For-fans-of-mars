@@ -14,7 +14,7 @@ function Header() {
                 </NavLink>
 
                 <NavLink exact={true} to="/gallery" activeClassName={styles.isActive}>
-                    <div>Gallery</div>
+                    <div>Photos from Mars</div>
                 </NavLink>
 
                 <div className={styles.icon}>

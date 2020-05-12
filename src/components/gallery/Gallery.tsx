@@ -14,6 +14,7 @@ const Gallery = () => {
 
     return (
         <div className={styles.container}>
+            <div className={styles.backgroundImage}></div>
             <div className={styles.photos}>
                 <div className={styles.activeGalleryWindow}>
                     <ActiveGalleryWindow />

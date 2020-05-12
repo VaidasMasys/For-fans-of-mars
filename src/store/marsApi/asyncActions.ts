@@ -76,7 +76,7 @@ export const fetchRoverPhotos = () => {
 
 const generateOneWeekOldDate = () => {
     const currentDate = new Date();
-    const pastDate = currentDate.getDate() - 10;
+    const pastDate = currentDate.getDate() - 12;
     currentDate.setDate(pastDate);
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth() + 1;

@@ -11,7 +11,7 @@ const ActiveGalleryItemInfoDisplay = () => {
             <div className={styles.wrapper}>
                 <h1>About the photo:</h1>
                 <p>
-                    Rover that took picture: <strong>{activePhoto.rover?.name}</strong>
+                    Rover that took this picture: <strong>{activePhoto.rover?.name}</strong>
                 </p>
                 <p>
                     Camera name: <strong>{activePhoto.camera?.full_name}</strong>
