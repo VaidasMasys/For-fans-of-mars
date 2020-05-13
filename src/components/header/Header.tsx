@@ -10,7 +10,7 @@ function Header() {
         <header>
             <nav className={burgerMenuIsOpen ? `${styles.topnav} ${styles.responsive}` : styles.topnav}>
                 <NavLink exact={true} to="/" activeClassName={styles.isActive}>
-                    <div>Home</div>
+                    <div>Weather</div>
                 </NavLink>
 
                 <NavLink exact={true} to="/gallery" activeClassName={styles.isActive}>

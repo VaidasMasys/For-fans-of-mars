@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import styles from './Home.module.scss';
+import styles from './Weather.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { IRootState } from '../../store';
 import { fetchWeather } from '../../store/marsApi/asyncActions';
 import { MarsDayData } from '../../types';
 
-function Home() {
+function Weather() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchWeather());
@@ -15,7 +15,7 @@ function Home() {
 
     return (
         <div className={styles.container}>
-            <div className={styles.homeBackground}></div>
+            <div className={styles.background}></div>
             <div className={styles.weatherDataWrapper}>
                 <div className={styles.weatherDataContainer}>
                     <h1 className={styles.weatherDataHeader}>LATEST WEATHER ON MARS</h1>
@@ -52,4 +52,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Weather;

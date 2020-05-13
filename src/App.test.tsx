@@ -2,12 +2,12 @@ import React from 'react';
 
 import { shallow } from 'enzyme';
 import App from './App';
-import Home from './components/home/Home';
+import Weather from './components/weather/Weather';
 
 describe('App component', () => {
-    it('checks if App rendered Home component', () => {
+    it('checks if App rendered Weather component', () => {
         const wrapper = shallow(<App />);
-        const home = wrapper.find(Home);
-        expect(home.exists()).toBe(true);
+        const weather = wrapper.find(Weather);
+        expect(weather.exists()).toBe(true);
     });
 });

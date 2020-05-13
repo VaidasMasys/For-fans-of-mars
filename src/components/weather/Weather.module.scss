@@ -3,7 +3,7 @@
     height: 100%;
 }
 
-.homeBackground {
+.background {
     position: fixed;
     z-index: -1;
     width: 100%;
@@ -70,7 +70,7 @@
 }
 
 @media (max-width: 576px) {
-    .homeBackground {
+    .background {
         background-image: url('../../assets/mars_width_saturn_small.jpg');
     }
     .container {
@@ -82,7 +82,7 @@
     }
 }
 @media (max-width: 768px) {
-    .homeBackground {
+    .background {
         background-image: url('../../assets/mars_width_saturn_small.jpg');
     }
 
