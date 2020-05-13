@@ -8,7 +8,7 @@ const ActiveGalleryWindow = () => {
     const activePhoto: MarsRoverPhotosData = useSelector((state: IRootState) => state.activePhotoData);
     return (
         <div className={styles.container}>
-            {activePhoto !== undefined ? <img src={activePhoto.img_src} alt="image from mars rover" /> : ''}
+            {activePhoto !== undefined ? <img src={activePhoto.img_src} alt="selected photo from mars rover" /> : ''}
         </div>
     );
 };

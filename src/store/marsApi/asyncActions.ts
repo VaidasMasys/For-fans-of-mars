@@ -49,13 +49,15 @@ export const fetchRoverPhotosFailure = (error: string) => {
     return action(Constants.FETCH_ROVER_PHOTOS_FAILURE, error);
 };
 
-export const fetchRoverPhotos = () => {
+export const fetchRoverPhotos = (date: Date) => {
     return (dispatch: Dispatch) => {
         dispatch(fetchRoverPhotosRequest());
-        generateOneWeekOldDate();
+
         axios
             .get(
-                `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${generateOneWeekOldDate()}&api_key=pIwfkyUZDPOcZZu6Pv1uc7g2Zl7YBI8mkbn6PDHU&feedtype=json&ver=1.0`,
+                `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${generateOneWeekOldDate(
+                    date,
+                )}&api_key=pIwfkyUZDPOcZZu6Pv1uc7g2Zl7YBI8mkbn6PDHU&feedtype=json&ver=1.0`,
             )
             .then((response: { data: { photos: MarsRoverPhotosData[] } }) => {
                 const filteredPhotosData = response.data.photos.filter(
@@ -74,12 +76,9 @@ export const fetchRoverPhotos = () => {
     };
 };
 
-const generateOneWeekOldDate = () => {
-    const currentDate = new Date();
-    const pastDate = currentDate.getDate() - 12;
-    currentDate.setDate(pastDate);
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth() + 1;
-    const day = currentDate.getDate();
+const generateOneWeekOldDate = (date: Date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
     return `${year}-${month}-${day}`;
 };

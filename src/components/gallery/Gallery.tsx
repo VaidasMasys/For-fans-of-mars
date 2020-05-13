@@ -11,10 +11,16 @@ import ActiveGalleryItemInfoDisplay from './ActiveGalleryItemInfoDisplay';
 const Gallery = () => {
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(fetchRoverPhotos());
+        dispatch(fetchRoverPhotos(generateOlderDate()));
     }, []);
+    const generateOlderDate = () => {
+        const currentDate = new Date();
+        const pastDate = currentDate.getDate() - 12;
+        currentDate.setDate(pastDate);
+        return currentDate;
+    };
 
-    const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
+    const [selectedDate, setSelectedDate] = useState<Date | null>(generateOlderDate());
 
     return (
         <div className={styles.container}>
@@ -24,8 +30,9 @@ const Gallery = () => {
                     <label className={styles.datePickerLabel}>Pick a date</label>
                     <DatePicker
                         selected={selectedDate}
-                        onChange={(date) => {
+                        onChange={(date: Date) => {
                             setSelectedDate(date);
+                            dispatch(fetchRoverPhotos(date));
                         }}
                         maxDate={new Date()}
                         dateFormat="yyyy-MM-dd"
