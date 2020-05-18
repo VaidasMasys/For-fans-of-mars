@@ -3,15 +3,6 @@
     height: 100%;
 }
 
-.background {
-    position: fixed;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    background-image: url('../../assets/mars_with_saturn.jpg');
-    background-size: cover;
-}
-
 .weatherDataWrapper {
     display: flex;
     justify-content: center;
@@ -71,7 +62,7 @@
 
 @media (max-width: 576px) {
     .background {
-        background-image: url('../../assets/mars_width_saturn_small.jpg');
+        background-image: url('../../assets/mars-rocket-small.jpg');
     }
     .container {
         height: auto;
@@ -82,10 +73,6 @@
     }
 }
 @media (max-width: 768px) {
-    .background {
-        background-image: url('../../assets/mars_width_saturn_small.jpg');
-    }
-
     .container {
         overflow: auto;
     }

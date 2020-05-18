@@ -1,0 +1,40 @@
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.contentWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.contentWrapper > div {
+    padding: 10px 30px;
+    text-align: center;
+    h1 {
+        color: var(--clr-white-shaded);
+        font-size: 40px;
+    }
+}
+
+.buttonYes {
+    border: none;
+    color: var(--clr-white-shaded);
+    padding: 18px 0;
+    width: 80px;
+    background: var(--clr-accent-light);
+}
+
+.buttonNo {
+    border: none;
+    padding: 18px 0;
+    width: 80px;
+    background: var(--bg-white-transparent);
+}
+
+.buttonNo:hover,
+.buttonYes:hover {
+    cursor: pointer;
+}

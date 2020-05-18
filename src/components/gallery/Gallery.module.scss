@@ -16,13 +16,13 @@
     grid-template-rows: 60px 65% 35%;
 }
 
-.backgroundImage {
-    position: fixed;
-    background-image: url('../../assets/mars_with_saturn.jpg');
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-}
+// .backgroundImage {
+//     position: fixed;
+//     background-image: url('../../assets/mars-rocket-big.jpg');
+//     background-size: cover;
+//     height: 100vh;
+//     width: 100%;
+// }
 .datePicker {
     grid-column: 1/4;
     grid-row: 1;

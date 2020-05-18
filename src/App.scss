@@ -5,6 +5,7 @@
     --clr-light-grey: #cccccc;
     --clr-white-shaded: #f2f2f2;
     --clr-white-main: #fff;
+    --bg-white-transparent: rgba(255, 255, 255, 0.8);
     --bg-dark: rgba(0, 0, 0, 0.8);
 }
 
@@ -16,6 +17,21 @@ body,
     height: 100%;
 }
 
+.appBackground {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-image: url('./assets/mars-rocket-big.jpg');
+    background-size: cover;
+}
+
 body {
     font-family: 'Open Sans', 'sans-serif';
+}
+
+@media (max-width: 768px) {
+    .appBackground {
+        background-image: url('./assets/mars-rocket-small.jpg');
+    }
 }
